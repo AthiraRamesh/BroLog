@@ -32,10 +32,6 @@ class ListBatchScreen extends StatelessWidget {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  // shape: RoundedRectangleBorder(
-                  //   borderRadius: BorderRadius.circular(30.0),
-                  //   side: BorderSide(color: Colors.grey),
-                  // ),
                   onTap: () {
                     Navigator.push(
                       context,
