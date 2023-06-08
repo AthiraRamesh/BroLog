@@ -1,8 +1,7 @@
 import 'package:Brolog/db/batch_db/batchdb.dart';
 import 'package:flutter/material.dart';
-import '../../db/models/BatchModel.dart';
+import '../../models/BatchModel.dart';
 import 'display_batch.dart';
-//import 'listbatch.dart';
 
 class ListBatchScreen extends StatelessWidget {
   const ListBatchScreen({super.key});
@@ -20,14 +19,14 @@ class ListBatchScreen extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
-                  color: Colors.teal,
+                  color: Color.fromARGB(255, 216, 214, 214),
                 ),
                 child: ListTile(
                   title: Center(
                     child: Text(
                       data.batch_name,
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.w500),
                     ),

@@ -2,9 +2,6 @@ import 'package:Brolog/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/ImageWidgets/Attendance_image.dart';
 import '../../widgets/ImageWidgets/Bubbles_image.dart';
-import '../../screens/batch/listbatch.dart';
-import '../../widgets/FloatingActionButton.dart';
-import '../../db/batch_db/batchdb.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../widgets/TextHeading.dart';
 import './liststudent.dart';
@@ -24,20 +21,34 @@ class HomeStudentScreen extends StatefulWidget {
 class _HomeStudentScreenState extends State<HomeStudentScreen> {
   @override
   Widget build(BuildContext context) {
-    getallstudents();
     String batch_name = widget.batch_name;
-    // print('@Home_student page Batch Name: $batch_name');
+    getallstudents(batch_name);
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Student Details"),
+      ),
       body: Column(children: [
-        BubblesImageWidget(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            BubblesImageWidget(),
+            myTextView("$batch_name"),
+          ],
+        ),
         SingleChildScrollView(
           child: Container(
-            height: 500,
+            height: 400,
             child: Column(
               children: [
-                myTextView("$batch_name - Student Details"),
-                const Expanded(child: ListStudentScreen()),
+                // myTextView("$batch_name - Student Details"),
+                // const SizedBox(
+                //   height: 20,
+                // ),
+                const Expanded(
+                  child: ListStudentScreen(),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -56,10 +67,10 @@ class _HomeStudentScreenState extends State<HomeStudentScreen> {
             ),
           ),
         ),
-        const SizedBox(
-          height: 20,
-        ),
-        AttendanceImageWidget(),
+        // const SizedBox(
+        //   height: 20,
+        // ),
+        // AttendanceImageWidget(),
       ]),
     );
   }

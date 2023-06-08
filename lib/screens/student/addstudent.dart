@@ -5,10 +5,8 @@ import '../../widgets/ImageWidgets/Attendance_image.dart';
 import '../../widgets/ImageWidgets/Bubbles_image.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../widgets/TextField.dart';
-import '../../db/models/StudentModel.dart';
-import '../../db/batch_db/batchdb.dart';
+import '../../models/StudentModel.dart';
 import './home_student.dart';
-import '../../db/models/BatchModel.dart';
 
 class AddStudentScreen extends StatefulWidget {
   final String batch_name;
@@ -16,45 +14,56 @@ class AddStudentScreen extends StatefulWidget {
     super.key,
     required this.batch_name,
   });
-  //static final Color buttonColor = Color(1BB6B6);
+
   @override
   State<AddStudentScreen> createState() => _AddBatchScreenState();
 }
 
 class _AddBatchScreenState extends State<AddStudentScreen> {
-  //final TextEditingController myController = TextEditingController();
   final _nameOfStudent = TextEditingController();
   final _domain = TextEditingController();
   final _mobile = TextEditingController();
   final _gender = TextEditingController();
   final _email = TextEditingController();
-  //final _batch = TextEditingController();
 
-  // final _batchId = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     print(size);
     String batch_name = widget.batch_name;
-    print('@addstudent page Batch Name: $batch_name');
+
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => HomeStudentScreen(
+                        batch_name: batch_name,
+                      )),
+            );
+            // Add the navigation logic to go back to the previous page
+          },
+        ),
+        centerTitle: true,
+        title: Text("Student Details"),
+      ),
+
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   title: Text("Student Details"),
+      // ),
       body: SingleChildScrollView(
         child: Column(children: [
           BubblesImageWidget(),
+          // myTextView("Enter Student Details"),
           // const SizedBox(
-          //   height: 5,
+          //   height: 20,
           // ),
-          myTextView("Enter Student Details"),
-          const SizedBox(
-            height: 20,
-          ),
           myTextView("$batch_name"),
-          // MyTextFormField(
-          //   controller: _batchId,
-          //   labelText: 'Batch name',
-          //   hintText: 'Enter batch name',
-          // ),
           const SizedBox(
             height: 20,
           ),
@@ -74,7 +83,6 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
           const SizedBox(
             height: 20,
           ),
-
           MyTextFormField(
             controller: _mobile,
             labelText: 'Mobile Number',
@@ -102,7 +110,8 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
           MyElevatedButton(
             text: 'Save',
             onPressed: () {
-              onBatchAddButtonClick();
+              print('Im calling onStudenAddButtonClick');
+              onStudenAddButtonClick();
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -112,24 +121,23 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
               );
             },
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          AttendanceImageWidget(),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // AttendanceImageWidget(),
         ]),
       ),
     );
   }
 
-  Future<void> onBatchAddButtonClick() async {
+  Future<void> onStudenAddButtonClick() async {
+    print('Im at onStudenAddButtonClick');
     final StudentName = _nameOfStudent.text.trim();
     final Domain = _domain.text.trim();
     final Mobile = _mobile.text.trim();
     final Gender = _gender.text.trim();
     final Email = _email.text.trim();
-    //final Batch_name = widget.batch_name;
-    final String batch_name = widget.batch_name;
-    print('Batch Name: $batch_name');
+    final batch_name = widget.batch_name;
 
     if (StudentName.isEmpty ||
         Domain.isEmpty ||
@@ -154,7 +162,6 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
         ),
       );
     }
-    //print('@Home_student page Batch Name: $batch_name');
 
     final student = StudentModel(
       student_name: StudentName,

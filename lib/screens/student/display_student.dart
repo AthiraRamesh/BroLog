@@ -5,9 +5,7 @@ import '../../widgets/ImageWidgets/Bubbles_image.dart';
 import '../../widgets/ImageWidgets/Attendance_image.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../db/batch_db/batchdb.dart';
-
 import './home_student.dart';
-import '../../db/models/BatchModel.dart';
 
 class DisplayStudent extends StatelessWidget {
   final String student_name;
@@ -16,7 +14,6 @@ class DisplayStudent extends StatelessWidget {
   final String email_id;
   final String gender;
   final int index;
-  //final String batch_name;
   final String batch_name;
   const DisplayStudent({
     super.key,
@@ -33,6 +30,10 @@ class DisplayStudent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Student Details"),
+      ),
       body: Column(
         children: [
           BubblesImageWidget(),
@@ -152,27 +153,11 @@ class DisplayStudent extends StatelessWidget {
           // const SizedBox(
           //   height: 10,
           // ),
-          MyElevatedButton(
-            text: 'Attendance',
-            onPressed: () {},
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyElevatedButton(
-            text: 'Students Details',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => HomeStudentScreen(batch_name: '')),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          AttendanceImageWidget(),
+
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // AttendanceImageWidget(),
         ],
       ),
     );

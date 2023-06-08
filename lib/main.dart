@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import './screens/login.dart';
+import './screens/welcome.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import './screens/batch/home.dart';
-import 'db/models/BatchModel.dart';
-import 'db/models/StudentModel.dart';
+import '../../models/StudentModel.dart';
+import '../../models/BatchModel.dart';
 
 void main() async {
   //hive
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Brolog',
+      title: 'BroLog',
       routes: {
         '/home': (context) => const HomeScreen(),
         //named routing
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: const LoginScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }

@@ -5,8 +5,8 @@ import '../../widgets/ImageWidgets/Bubbles_image.dart';
 import '../../widgets/ImageWidgets/Attendance_image.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../db/batch_db/batchdb.dart';
-import 'edit_batch.dart';
 import '../../screens/student/home_student.dart';
+import 'edit_batch.dart';
 
 class DisplayBatch extends StatelessWidget {
   final String batch_name;
@@ -29,6 +29,27 @@ class DisplayBatch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => HomeStudentScreen(
+                        batch_name: batch_name,
+                      )),
+            );
+            // Add the navigation logic to go back to the previous page
+          },
+        ),
+        centerTitle: true,
+        title: Text("Batch Details"),
+      ),
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   title: Text("Batch Details"),
+      // ),
       body: Column(
         children: [
           BubblesImageWidget(),
@@ -165,10 +186,10 @@ class DisplayBatch extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          AttendanceImageWidget(),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // AttendanceImageWidget(),
         ],
       ),
     );

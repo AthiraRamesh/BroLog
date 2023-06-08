@@ -1,18 +1,15 @@
-import 'package:Brolog/db/batch_db/batchdb.dart';
 import 'package:flutter/material.dart';
-import '../../db/models/StudentModel.dart';
+import '../../models/StudentModel.dart';
+import '../../db/student_db/studentdb.dart';
 import 'display_student.dart';
 
 class ListStudentScreen extends StatelessWidget {
-  //final String batch_name;
   const ListStudentScreen({
     super.key,
-    //required this.batch_name,
   });
 
   @override
   Widget build(BuildContext context) {
-    //print('@list_student page Batch Name: $batch_name');
     return ValueListenableBuilder(
       valueListenable: studentListNotifier,
       builder: (context, List<StudentModel> studentList, Widget? child) {
@@ -22,10 +19,9 @@ class ListStudentScreen extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.only(left: 80.0, right: 80.0),
               child: Container(
-                //Text('Received String: $stringValue'),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
-                  color: const Color.fromARGB(255, 232, 229, 229),
+                  color: Color.fromARGB(255, 216, 214, 214),
                 ),
                 child: ListTile(
                   title: Center(
@@ -37,10 +33,6 @@ class ListStudentScreen extends StatelessWidget {
                           fontWeight: FontWeight.normal),
                     ),
                   ),
-                  // shape: RoundedRectangleBorder(
-                  //   borderRadius: BorderRadius.circular(30.0),
-                  //   side: BorderSide(color: Colors.grey),
-                  // ),
                   onTap: () {
                     Navigator.push(
                       context,

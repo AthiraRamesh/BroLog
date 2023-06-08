@@ -5,18 +5,17 @@ import '../../widgets/ImageWidgets/Attendance_image.dart';
 import '../../widgets/ImageWidgets/Bubbles_image.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../widgets/TextField.dart';
-import '../../db/models/BatchModel.dart';
 import '../../db/batch_db/batchdb.dart';
+import '../../models/BatchModel.dart';
 
 class AddBatchScreen extends StatefulWidget {
   const AddBatchScreen({super.key});
-  //static final Color buttonColor = Color(1BB6B6);
+
   @override
   State<AddBatchScreen> createState() => _AddBatchScreenState();
 }
 
 class _AddBatchScreenState extends State<AddBatchScreen> {
-  //final TextEditingController myController = TextEditingController();
   final _nameOfBatch = TextEditingController();
   final _locationOfBatch = TextEditingController();
   final _CountOfStudent = TextEditingController();
@@ -27,16 +26,17 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
     Size size = MediaQuery.of(context).size;
     print(size);
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      //onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         backgroundColor: Colors.white,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Batch Details"),
+        ),
         body: SingleChildScrollView(
           child: Column(children: [
             BubblesImageWidget(),
-            // const SizedBox(
-            //   height: 5,
-            // ),
-            myTextView("Enter Batch Details"),
+            myTextView("Batch Details"),
             const SizedBox(
               height: 20,
             ),
@@ -64,7 +64,7 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
             const SizedBox(
               height: 20,
             ),
-            myTextView("Batch Leader Details"),
+            myTextView("Batch Leader\'s Details"),
             const SizedBox(
               height: 20,
             ),
@@ -94,10 +94,6 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
                 );
               },
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            AttendanceImageWidget(),
           ]),
         ),
       ),
@@ -123,7 +119,7 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
           behavior: SnackBarBehavior.floating,
           margin: EdgeInsets.all(20),
           duration: Duration(seconds: 1),
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.red,
           content: Text(
             'Batch Added Successfully',
             textAlign: TextAlign.center,
@@ -134,7 +130,6 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
         ),
       );
     }
-    //print('$BatchName $Location $Count $LeadName $Number');
     final batch = BatchModel(
       batch_name: BatchName,
       location: Location,

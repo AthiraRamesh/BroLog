@@ -57,12 +57,12 @@ flutter_native_splash:
 
   color: "#FFFFFF"
   position:
-  image: icons/attendance.jpg
+  image: icons/Welcome.png
 
 flutter_icons:
   android: true
   ios: true
-  image_path: "icons/attendance.jpg"
+  image_path: "icons/Welcome.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../db/models/BatchModel.dart';
+import '../../models/BatchModel.dart';
 import '../../db/batch_db/batchdb.dart';
 import '../../widgets/TextField.dart';
 import '../../widgets/TextHeading.dart';
@@ -36,7 +36,6 @@ class _EditBatchState extends State<EditBatch> {
   TextEditingController _CountOfStudent = TextEditingController();
   TextEditingController _nameOfLead = TextEditingController();
   TextEditingController _phnOfLead = TextEditingController();
-  final _formkey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -115,10 +114,10 @@ class _EditBatchState extends State<EditBatch> {
                 );
               },
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            AttendanceImageWidget(),
+            // const SizedBox(
+            //   height: 5,
+            // ),
+            // AttendanceImageWidget(),
           ],
         ),
       ),

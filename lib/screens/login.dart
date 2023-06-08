@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import '../widgets/TextHeading.dart';
-import '../widgets/ImageWidgets/Attendance_image.dart';
 import '../widgets/ImageWidgets/Bubbles_image.dart';
 import '../widgets/ImageWidgets/Login_image.dart';
 import '../widgets/TextField.dart';
 import '../widgets/ElevatedButton.dart';
-import './batch/home.dart';
+import '../screens/batch/home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  //static final Color buttonColor = Color(1BB6B6);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -68,10 +66,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          AttendanceImageWidget(),
         ]),
       ),
     );

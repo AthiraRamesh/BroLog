@@ -12,11 +12,11 @@ class BubblesImageWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Expanded(
+        Container(
           child: Image.asset(
             'images/bubbles.png',
             height: 144,
-            width: double.infinity,
+            width: 160,
             alignment: Alignment.topLeft,
           ),
         )
@@ -24,3 +24,21 @@ class BubblesImageWidget extends StatelessWidget {
     );
   }
 }
+// class BubblesImageWidget extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Container(
+//         decoration: BoxDecoration(
+//           image: DecorationImage(
+//             image: AssetImage(
+//               'images/bubbles.png',
+//             ), // Replace "image.jpg" with the actual filename and extension of your image
+//             fit: BoxFit.cover,
+//           ),
+//         ),
+//         // Replace this with your actual content widget
+//       ),
+//     );
+//   }
+// }

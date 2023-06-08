@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-import '../models/BatchModel.dart';
 part 'StudentModel.g.dart';
 
 @HiveType(typeId: 2)

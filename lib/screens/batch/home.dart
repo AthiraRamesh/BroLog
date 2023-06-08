@@ -20,21 +20,19 @@ class _HomeScreenState extends State<HomeScreen> {
     getallbatches();
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Batches"),
+        automaticallyImplyLeading: false,
+      ),
       body: Column(children: [
         BubblesImageWidget(),
-        // const SizedBox(
-        //   height: 20,
-        // ),
         SingleChildScrollView(
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            //width: MediaQuery.of(context).size.width * 0.01,
+            height: MediaQuery.of(context).size.height * 0.5,
             child: Column(
               children: [
-                myTextView("Batches"),
-                // const SizedBox(
-                //   height: 20,
-                // ),
+                //myTextView("Batches"),
                 const Expanded(child: ListBatchScreen()),
                 const SizedBox(
                   height: 20,
@@ -51,10 +49,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        const SizedBox(
-          height: 20,
-        ),
-        AttendanceImageWidget(),
+        // const SizedBox(
+        //   height: 20,
+        // ),
+        // AttendanceImageWidget(),
       ]),
     );
   }
