@@ -112,7 +112,7 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
             onPressed: () {
               print('Im calling onStudenAddButtonClick');
               onStudenAddButtonClick();
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                     builder: (context) => HomeStudentScreen(

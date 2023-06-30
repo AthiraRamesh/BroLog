@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         BubblesImageWidget(),
         SingleChildScrollView(
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.5,
+            height: MediaQuery.of(context).size.height * 0.6,
             child: Column(
               children: [
                 //myTextView("Batches"),

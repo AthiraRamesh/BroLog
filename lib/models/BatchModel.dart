@@ -29,4 +29,6 @@ class BatchModel {
     required this.lead_name,
     required this.phnNumber,
   });
+
+  get propertyToSort => null;
 }
