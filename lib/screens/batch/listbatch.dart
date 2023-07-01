@@ -16,39 +16,49 @@ class ListBatchScreen extends StatelessWidget {
             final data = batchList[index];
             return Padding(
               padding: const EdgeInsets.only(left: 100.0, right: 100.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  color: Color.fromARGB(255, 216, 214, 214),
-                ),
-                child: ListTile(
-                  title: Center(
-                    child: Text(
-                      data.batch_name,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                      color: Color.fromARGB(255, 216, 214, 214),
+                    ),
+                    child: ListTile(
+                      title: Center(
+                        child: Text(
+                          data.batch_name,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) {
+                              return DisplayBatch(
+                                batch_name: data.batch_name,
+                                location: data.location,
+                                count: data.count,
+                                lead_name: data.lead_name,
+                                phnNumber: data.phnNumber,
+                                index: index,
+                              );
+                            }),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) {
-                          return DisplayBatch(
-                            batch_name: data.batch_name,
-                            location: data.location,
-                            count: data.count,
-                            lead_name: data.lead_name,
-                            phnNumber: data.phnNumber,
-                            index: index,
-                          );
-                        }),
-                      ),
-                    );
-                  },
-                ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
               ),
             );
           },

@@ -6,8 +6,14 @@ Widget myText(
 }) {
   return Container(
     child: Text(
-      label, textScaleFactor: scale,
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
+      label,
+      textScaleFactor: scale,
+      style: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.normal,
+        color: Colors.black,
+        fontStyle: FontStyle.italic,
+      ),
       //textAlign: TextAlign.center,
     ),
   );

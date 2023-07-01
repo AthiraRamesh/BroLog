@@ -52,11 +52,18 @@ class _EditBatchState extends State<EditBatch> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Edit Batch Details"),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            BubblesImageWidget(),
-            myTextView("Enter Batch Details"),
+            //BubblesImageWidget(),
+            const SizedBox(
+              height: 20,
+            ),
+            myTextView("Batch Details"),
             const SizedBox(
               height: 20,
             ),
@@ -102,7 +109,7 @@ class _EditBatchState extends State<EditBatch> {
               hintText: 'Enter Batch Leader\'s phone number',
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             MyElevatedButton(
               text: 'Save',

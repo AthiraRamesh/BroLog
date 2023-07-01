@@ -1,4 +1,6 @@
 import 'package:Brolog/db/student_db/studentdb.dart';
+import 'package:Brolog/models/StudentModel.dart';
+import 'package:Brolog/screens/student/display_student.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/ImageWidgets/Attendance_image.dart';
 import '../../widgets/ImageWidgets/Bubbles_image.dart';
@@ -27,51 +29,60 @@ class _HomeStudentScreenState extends State<HomeStudentScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Student Details"),
+        title: Text("$batch_name : Student Details"),
       ),
-      body: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            BubblesImageWidget(),
-            myTextView("$batch_name"),
-          ],
-        ),
-        SingleChildScrollView(
-          child: Container(
-            height: 400,
-            child: Column(
-              children: [
-                // myTextView("$batch_name - Student Details"),
-                // const SizedBox(
-                //   height: 20,
-                // ),
-                const Expanded(
-                  child: ListStudentScreen(),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                MyElevatedButton(
-                  text: 'Add New Student',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              AddStudentScreen(batch_name: batch_name)),
-                    );
-                  },
-                ),
-              ],
+      body: const ListStudentScreen(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return AddStudentScreen(batch_name: batch_name);
+              },
             ),
-          ),
+          );
+        },
+        tooltip: 'Add Students',
+        backgroundColor: Color.fromARGB(255, 213, 71, 71),
+        child: const Icon(
+          Icons.add,
+          size: 40,
+          color: Colors.white,
         ),
-        // const SizedBox(
-        //   height: 20,
-        // ),
-        // AttendanceImageWidget(),
-      ]),
+      ),
+      // body: Column(children: [
+      //   SizedBox(
+      //     height: 20,
+      //   ),
+      //   myTextView("$batch_name"),
+      //   // SingleChildScrollView(
+      //   //   child: Container(
+      //   //     height: MediaQuery.of(context).size.height * 0.6,
+      //   //     child: Column(
+      //   //       children: [
+      //   //         const Expanded(
+      //   //           child: ListStudentScreen(),
+      //   //         ),
+      //   //         const SizedBox(
+      //   //           height: 20,
+      //   //         ),
+      //   //         MyElevatedButton(
+      //   //           text: 'Add New Student',
+      //   //           onPressed: () {
+      //   //             Navigator.push(
+      //   //               context,
+      //   //               MaterialPageRoute(
+      //   //                   builder: (context) =>
+      //   //                       AddStudentScreen(batch_name: batch_name)),
+      //   //             );
+      //   //           },
+      //   //         ),
+      //   //       ],
+      //   //     ),
+      //   //   ),
+      //   // ),
+      // ]),
     );
   }
 }

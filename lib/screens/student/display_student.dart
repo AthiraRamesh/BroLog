@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/Text.dart';
-import '../../widgets/ImageWidgets/Bubbles_image.dart';
-import '../../widgets/ImageWidgets/Attendance_image.dart';
-import '../../widgets/ElevatedButton.dart';
-import '../../db/batch_db/batchdb.dart';
-import './home_student.dart';
 
 class DisplayStudent extends StatelessWidget {
   final String student_name;
@@ -36,7 +31,6 @@ class DisplayStudent extends StatelessWidget {
       ),
       body: Column(
         children: [
-          BubblesImageWidget(),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -56,9 +50,9 @@ class DisplayStudent extends StatelessWidget {
                   })));
                 },
                 icon: Icon(
-                  Icons.edit,
+                  Icons.edit_outlined,
                   size: 25,
-                  color: Colors.teal,
+                  color: Colors.blueGrey,
                 ),
               ),
               IconButton(
@@ -82,7 +76,8 @@ class DisplayStudent extends StatelessWidget {
                             TextButton(
                               onPressed: (() {
                                 popoutfuction(context);
-                                deleteBatch(index);
+
+                                // deleteStudent(batch_name);
 
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
@@ -106,9 +101,9 @@ class DisplayStudent extends StatelessWidget {
                   );
                 },
                 icon: Icon(
-                  Icons.delete,
+                  Icons.delete_outline,
                   size: 25,
-                  color: Colors.teal,
+                  color: Color.fromARGB(255, 213, 71, 71),
                 ),
               ),
             ],
@@ -120,44 +115,35 @@ class DisplayStudent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    myTextView("Student Details "),
                     const SizedBox(
                       height: 30,
                     ),
-                    myText("Batch Name:"),
+                    myText("Batch Name -  $batch_name"),
                     const SizedBox(
                       height: 20,
                     ),
-                    myText("Name: $student_name"),
+                    myText("Name -  $student_name"),
                     const SizedBox(
                       height: 20,
                     ),
-                    myText("Domain: $domain"),
+                    myText("Domain -  $domain"),
                     const SizedBox(
                       height: 30,
                     ),
-                    myTextView("Mobile: $mobile"),
+                    myText("Mobile -  $mobile"),
                     const SizedBox(
                       height: 30,
                     ),
-                    myText("Email id: $email_id"),
+                    myText("Email id -  $email_id"),
                     const SizedBox(
                       height: 20,
                     ),
-                    myText("Gender: $gender"),
+                    myText("Gender -  $gender"),
                   ],
                 ),
               ),
             ),
           ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
-
-          // const SizedBox(
-          //   height: 20,
-          // ),
-          // AttendanceImageWidget(),
         ],
       ),
     );

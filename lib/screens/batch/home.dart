@@ -25,35 +25,26 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("Batches"),
         automaticallyImplyLeading: false,
       ),
-      body: Column(children: [
-        BubblesImageWidget(),
-        SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            child: Column(
-              children: [
-                //myTextView("Batches"),
-                const Expanded(child: ListBatchScreen()),
-                const SizedBox(
-                  height: 20,
-                ),
-                MyFloatingActionButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AddBatchScreen()),
-                    );
-                  },
-                ),
-              ],
+      body: const ListBatchScreen(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return const AddBatchScreen();
+              },
             ),
-          ),
+          );
+        },
+        tooltip: 'Add batches',
+        backgroundColor: Color.fromARGB(255, 213, 71, 71),
+        child: const Icon(
+          Icons.add,
+          size: 40,
+          color: Colors.white,
         ),
-        // const SizedBox(
-        //   height: 20,
-        // ),
-        // AttendanceImageWidget(),
-      ]),
+      ),
     );
   }
 }

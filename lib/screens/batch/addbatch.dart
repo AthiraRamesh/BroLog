@@ -31,18 +31,16 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Batch Details"),
+          title: Text("Add Batch Details"),
         ),
         body: SingleChildScrollView(
           child: Column(children: [
-            BubblesImageWidget(),
-            myTextView("Batch Details"),
             const SizedBox(
               height: 20,
             ),
             MyTextFormField(
               controller: _nameOfBatch,
-              labelText: 'batch name',
+              labelText: 'Batch name',
               hintText: 'Enter batch name',
             ),
             const SizedBox(
@@ -58,7 +56,7 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
             ),
             MyTextFormField(
               controller: _CountOfStudent,
-              labelText: 'Number',
+              labelText: 'Enrollment',
               hintText: 'Enter number of students',
             ),
             const SizedBox(
@@ -119,7 +117,7 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
           behavior: SnackBarBehavior.floating,
           margin: EdgeInsets.all(20),
           duration: Duration(seconds: 1),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.black,
           content: Text(
             'Batch Added Successfully',
             textAlign: TextAlign.center,

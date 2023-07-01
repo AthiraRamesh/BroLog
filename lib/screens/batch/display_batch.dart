@@ -8,7 +8,7 @@ import '../../db/batch_db/batchdb.dart';
 import '../../screens/student/home_student.dart';
 import 'edit_batch.dart';
 
-class DisplayBatch extends StatelessWidget {
+class DisplayBatch extends StatefulWidget {
   final String batch_name;
   final String location;
   final String count;
@@ -26,6 +26,11 @@ class DisplayBatch extends StatelessWidget {
   });
 
   @override
+  State<DisplayBatch> createState() => _DisplayBatchState();
+}
+
+class _DisplayBatchState extends State<DisplayBatch> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -37,7 +42,7 @@ class DisplayBatch extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => HomeStudentScreen(
-                        batch_name: batch_name,
+                        batch_name: widget.batch_name,
                       )),
             );
             // Add the navigation logic to go back to the previous page
@@ -46,13 +51,8 @@ class DisplayBatch extends StatelessWidget {
         centerTitle: true,
         title: Text("Batch Details"),
       ),
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   title: Text("Batch Details"),
-      // ),
       body: Column(
         children: [
-          BubblesImageWidget(),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -61,19 +61,19 @@ class DisplayBatch extends StatelessWidget {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: ((context) {
                     return EditBatch(
-                      batch_name: batch_name,
-                      location: location,
-                      count: count,
-                      lead_name: lead_name,
-                      phnNumber: phnNumber,
-                      index: index,
+                      batch_name: widget.batch_name,
+                      location: widget.location,
+                      count: widget.count,
+                      lead_name: widget.lead_name,
+                      phnNumber: widget.phnNumber,
+                      index: widget.index,
                     );
                   })));
                 },
                 icon: Icon(
-                  Icons.edit,
+                  Icons.edit_outlined,
                   size: 25,
-                  color: Colors.teal,
+                  color: Colors.blueGrey,
                 ),
               ),
               IconButton(
@@ -97,7 +97,7 @@ class DisplayBatch extends StatelessWidget {
                             TextButton(
                               onPressed: (() {
                                 popoutfuction(context);
-                                deleteBatch(index);
+                                deleteBatch(widget.index);
 
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
@@ -120,60 +120,49 @@ class DisplayBatch extends StatelessWidget {
                     }),
                   );
                 },
-                icon: Icon(
-                  Icons.delete,
-                  size: 25,
-                  color: Colors.teal,
-                ),
+                icon: Icon(Icons.delete_outline,
+                    size: 25, color: Color.fromARGB(255, 213, 71, 71)),
               ),
             ],
           ),
-          SingleChildScrollView(
-            child: Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    myTextView("Batch Details "),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    myText("Batch Name: $batch_name"),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    myText("Location: $location"),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    myText("Number of students: $count"),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    myTextView("Batch Leader\'s Details "),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    myText("Name: $lead_name"),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    myText("Mobile Number: $phnNumber"),
-                  ],
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                myText("Batch Name -  ${widget.batch_name}"),
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
+                myText("Location -  ${widget.location}"),
+                const SizedBox(
+                  height: 20,
+                ),
+                myText("Number of students -  ${widget.count}"),
+                const SizedBox(
+                  height: 30,
+                ),
+                myTextView("Batch Leader\'s Details "),
+                const SizedBox(
+                  height: 30,
+                ),
+                myText("Name -  ${widget.lead_name}"),
+                const SizedBox(
+                  height: 20,
+                ),
+                myText("Mobile Number - ${widget.phnNumber}"),
+                const SizedBox(
+                  height: 30,
+                ),
+              ],
             ),
           ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
           MyElevatedButton(
             text: 'Attendance',
             onPressed: () {},
           ),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           MyElevatedButton(
             text: 'Students Details',
@@ -182,14 +171,10 @@ class DisplayBatch extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        HomeStudentScreen(batch_name: '$batch_name')),
+                        HomeStudentScreen(batch_name: '${widget.batch_name}')),
               );
             },
           ),
-          // const SizedBox(
-          //   height: 20,
-          // ),
-          // AttendanceImageWidget(),
         ],
       ),
     );

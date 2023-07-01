@@ -17,7 +17,7 @@ class StudentModelAdapter extends TypeAdapter<StudentModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return StudentModel(
-      id: fields[0] as int?,
+      id: fields[0] as String?,
       student_name: fields[1] as String,
       domain: fields[2] as String,
       mobile: fields[3] as String,

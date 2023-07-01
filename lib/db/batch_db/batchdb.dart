@@ -30,11 +30,12 @@ ValueNotifier<List<BatchModel>> batchListNotifier = ValueNotifier([]);
 const BATCH_DB_NAME = 'batch_db';
 Future<void> addBatch(BatchModel value) async {
   final attendanceDB = await Hive.openBox<BatchModel>('batch_db');
+  //final batchList = attendanceDB.values.toList();
 
   await attendanceDB.add(value);
-  print(value.toString());
+  //print(value.toString());
 
-  batchListNotifier.value.add(value);
+  //batchListNotifier.value.add(value);
   // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
   batchListNotifier.notifyListeners();
 }

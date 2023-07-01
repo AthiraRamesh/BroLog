@@ -14,10 +14,12 @@ class MyElevatedButton extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              minimumSize: const Size(280, 55),
-              textStyle: const TextStyle(fontSize: 20),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30))),
+            minimumSize: const Size(280, 55),
+            textStyle: const TextStyle(fontSize: 20),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            backgroundColor: Color.fromARGB(255, 213, 71, 71),
+          ),
           onPressed: onPressed,
           child: Text(text),
         ),

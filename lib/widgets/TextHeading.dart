@@ -6,9 +6,10 @@ Widget myTextView(
 }) {
   return Center(
     child: Text(
-      label, textScaleFactor: scale,
+      label,
+      textScaleFactor: scale,
       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-      //textAlign: TextAlign.center,
+      textAlign: TextAlign.center,
     ),
   );
 }
