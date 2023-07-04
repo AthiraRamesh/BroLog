@@ -59,11 +59,6 @@ class _EditBatchState extends State<EditBatch> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            //BubblesImageWidget(),
-            const SizedBox(
-              height: 20,
-            ),
-            myTextView("Batch Details"),
             const SizedBox(
               height: 20,
             ),
@@ -109,7 +104,7 @@ class _EditBatchState extends State<EditBatch> {
               hintText: 'Enter Batch Leader\'s phone number',
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             MyElevatedButton(
               text: 'Save',

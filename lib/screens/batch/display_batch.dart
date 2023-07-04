@@ -6,6 +6,8 @@ import '../../widgets/ImageWidgets/Attendance_image.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../db/batch_db/batchdb.dart';
 import '../../screens/student/home_student.dart';
+import '../attendance/home_attendance.dart';
+import '../attendance/home_page.dart';
 import 'edit_batch.dart';
 
 class DisplayBatch extends StatefulWidget {
@@ -35,22 +37,26 @@ class _DisplayBatchState extends State<DisplayBatch> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => HomeStudentScreen(
-                        batch_name: widget.batch_name,
-                      )),
-            );
-            // Add the navigation logic to go back to the previous page
-          },
-        ),
         centerTitle: true,
         title: Text("Batch Details"),
       ),
+      // appBar: AppBar(
+      //   leading: IconButton(
+      //     icon: Icon(Icons.arrow_back),
+      //     onPressed: () {
+      //       Navigator.push(
+      //         context,
+      //         MaterialPageRoute(
+      //             builder: (context) => HomeStudentScreen(
+      //                   batch_name: widget.batch_name,
+      //                 )),
+      //       );
+      //       // Add the navigation logic to go back to the previous page
+      //     },
+      //   ),
+      //   centerTitle: true,
+      //   title: Text("Batch Details"),
+      // ),
       body: Column(
         children: [
           Row(
@@ -159,8 +165,24 @@ class _DisplayBatchState extends State<DisplayBatch> {
           ),
           MyElevatedButton(
             text: 'Attendance',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            },
           ),
+          // MyElevatedButton(
+          //   text: 'Attendance',
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //           builder: (context) => HomeAttendanceScreen(
+          //               batch_name: '${widget.batch_name}')),
+          //     );
+          //   },
+          // ),
           const SizedBox(
             height: 30,
           ),
@@ -180,7 +202,6 @@ class _DisplayBatchState extends State<DisplayBatch> {
     );
   }
 
-  // fsfs
   popoutfuction(BuildContext context) {
     //return Navigator.of(context).pop();
     //return Navigator.pop(context);

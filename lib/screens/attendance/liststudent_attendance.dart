@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../models/StudentModel.dart';
 import '../../db/student_db/studentdb.dart';
-import 'display_student.dart';
+import '../student/display_student.dart';
 
-class ListStudentScreen extends StatelessWidget {
-  const ListStudentScreen({
+class ListStudentAttendanceScreen extends StatelessWidget {
+  const ListStudentAttendanceScreen({
     super.key,
   });
 
@@ -38,7 +38,6 @@ class ListStudentScreen extends StatelessWidget {
                               fontWeight: FontWeight.normal),
                         ),
                       ),
-                      //trailing: Text(data.domain),
                       onTap: () {
                         Navigator.push(
                           context,

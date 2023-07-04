@@ -33,22 +33,26 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => HomeStudentScreen(
-                        batch_name: batch_name,
-                      )),
-            );
-            // Add the navigation logic to go back to the previous page
-          },
-        ),
         centerTitle: true,
         title: Text("Student Details"),
       ),
+      // appBar: AppBar(
+      //   leading: IconButton(
+      //     icon: Icon(Icons.arrow_back),
+      //     onPressed: () {
+      //       Navigator.push(
+      //         context,
+      //         MaterialPageRoute(
+      //             builder: (context) => HomeStudentScreen(
+      //                   batch_name: batch_name,
+      //                 )),
+      //       );
+      //       // Add the navigation logic to go back to the previous page
+      //     },
+      //   ),
+      //   centerTitle: true,
+      //   title: Text("Student Details"),
+      // ),
       body: SingleChildScrollView(
         child: Column(children: [
           const SizedBox(

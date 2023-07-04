@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../db/student_db/studentdb.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/Text.dart';
+import 'edit_student.dart';
 
 class DisplayStudent extends StatelessWidget {
   final String student_name;
@@ -27,7 +29,7 @@ class DisplayStudent extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Student Details"),
+        title: Text("$batch_name : Student Details"),
       ),
       body: Column(
         children: [
@@ -38,7 +40,7 @@ class DisplayStudent extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: ((context) {
-                    return DisplayStudent(
+                    return EditStudent(
                       student_name: student_name,
                       domain: domain,
                       mobile: mobile,
@@ -77,7 +79,7 @@ class DisplayStudent extends StatelessWidget {
                               onPressed: (() {
                                 popoutfuction(context);
 
-                                // deleteStudent(batch_name);
+                                //deleteStudent(widget.index);
 
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
@@ -118,10 +120,6 @@ class DisplayStudent extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    myText("Batch Name -  $batch_name"),
-                    const SizedBox(
-                      height: 20,
-                    ),
                     myText("Name -  $student_name"),
                     const SizedBox(
                       height: 20,
@@ -134,7 +132,7 @@ class DisplayStudent extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    myText("Email id -  $email_id"),
+                    myText("Email -  $email_id"),
                     const SizedBox(
                       height: 20,
                     ),

@@ -86,7 +86,7 @@ Future<void> getallstudents(String batch_name) async {
 // }
 
 Future<void> deleteStudent(int id) async {
-  final attendanceDB = await Hive.openBox<StudentModel>('batch_db');
+  final attendanceDB = await Hive.openBox<StudentModel>('student_db');
 
   await attendanceDB.deleteAt(id);
   // getallstudents(batch_name);
