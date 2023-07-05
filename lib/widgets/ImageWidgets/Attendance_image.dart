@@ -12,6 +12,13 @@ class AttendanceImageWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
+        // Positioned.fill(
+        //   child: Image.asset(
+        //     "assets/background.jpg",
+        //     fit: BoxFit.fitWidth,
+        //     alignment: Alignment.bottomLeft,
+        //   ),
+        // ),
         Expanded(
           child: Image.asset(
             'images/attendance.jpg',

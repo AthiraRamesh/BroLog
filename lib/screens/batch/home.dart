@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../widgets/TextHeading.dart';
-import '../../widgets/ImageWidgets/Attendance_image.dart';
-import '../../widgets/ImageWidgets/Bubbles_image.dart';
 import './addbatch.dart';
 import './listbatch.dart';
-import '../../widgets/FloatingActionButton.dart';
 import '../../db/batch_db/batchdb.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,6 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         title: Text("Batches"),
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            // Handle menu icon press
+          },
+        ),
       ),
       body: const ListBatchScreen(),
       floatingActionButton: FloatingActionButton(

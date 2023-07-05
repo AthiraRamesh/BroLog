@@ -24,13 +24,16 @@ class StudentModel {
   @HiveField(6)
   final String batch_name;
 
-  StudentModel({
-    this.id,
-    required this.student_name,
-    required this.domain,
-    required this.mobile,
-    required this.email_id,
-    required this.gender,
-    required this.batch_name,
-  });
+  @HiveField(7)
+  bool isSelected;
+
+  StudentModel(
+      {this.id,
+      required this.student_name,
+      required this.domain,
+      required this.mobile,
+      required this.email_id,
+      required this.gender,
+      required this.batch_name,
+      required this.isSelected});
 }

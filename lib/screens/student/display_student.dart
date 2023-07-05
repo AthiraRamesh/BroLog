@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../db/student_db/studentdb.dart';
-import '../../widgets/TextHeading.dart';
 import '../../widgets/Text.dart';
 import 'edit_student.dart';
 

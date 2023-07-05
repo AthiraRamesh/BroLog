@@ -159,6 +159,7 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
         email_id: Email,
         gender: Gender,
         batch_name: batch_name,
+        isSelected: false,
         id: DateTime.now().millisecondsSinceEpoch.toString());
 
     addStudent(student);

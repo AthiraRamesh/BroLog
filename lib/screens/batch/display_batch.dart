@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/Text.dart';
-import '../../widgets/ImageWidgets/Bubbles_image.dart';
-import '../../widgets/ImageWidgets/Attendance_image.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../db/batch_db/batchdb.dart';
 import '../../screens/student/home_student.dart';
 import '../attendance/home_attendance.dart';
-import '../attendance/home_page.dart';
 import 'edit_batch.dart';
 
 class DisplayBatch extends StatefulWidget {
@@ -164,11 +161,13 @@ class _DisplayBatchState extends State<DisplayBatch> {
             ),
           ),
           MyElevatedButton(
-            text: 'Attendance',
+            text: 'Take Attendance',
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomePage()),
+                MaterialPageRoute(
+                    builder: (context) => HomeAttendanceScreen(
+                        batch_name: '${widget.batch_name}')),
               );
             },
           ),

@@ -8,37 +8,20 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hive/hive.dart';
-import '../../models/StudentModel.dart';
+import '../../models/AttendanceModel.dart';
 
 const STUDENT_DB_NAME = 'student_db';
 
 abstract class StudentDbFunctions {
-  Future<List<StudentModel>> getallstudents();
-  Future<void> addStudent(StudentModel obj);
-  Future<void> deleteStudent(int id);
+  Future<List<AttendanceModel>> getallstudents();
+  Future<void> addAttendance(AttendanceModel obj);
+  Future<void> deleteAttendance(int id);
 }
 
-// class StudentDB implements StudentDbFunctions {
-//   StudentDB._internal();
-//   static StudentDB instance = StudentDB._internal();
-//   factory StudentDB() {
-//     return instance;
-//   }
-
-//   @override
-//   Future<void> addStudent(StudentModel obj) => throw UnimplementedError();
-
-//   @override
-//   Future<void> deleteStudent(int id) => throw UnimplementedError();
-
-//   @override
-//   Future<List<StudentModel>> getallstudents() => throw UnimplementedError();
-// }
-
 // ignore: duplicate_ignore, duplicate_ignore
-ValueNotifier<List<StudentModel>> studentListNotifier = ValueNotifier([]);
-Future<void> addStudent(StudentModel value) async {
-  final attendanceDB = await Hive.openBox<StudentModel>('student_db');
+ValueNotifier<List<AttendanceModel>> studentListNotifier = ValueNotifier([]);
+Future<void> addStudent(AttendanceModel value) async {
+  final attendanceDB = await Hive.openBox<AttendanceModel>('student_db');
   await attendanceDB.add(value);
   //await attendanceDB.put(value.id, value);
   log(value.toString());
@@ -62,20 +45,20 @@ Future<void> addStudent(StudentModel value) async {
 //   return studentList;
 // }
 
-Future<void> getallstudents(String batch_name) async {
-  final attendanceDB = await Hive.openBox<StudentModel>('student_db');
-  //print(attendanceDB.length);
-  studentListNotifier.value.clear();
-  //print(studentListNotifier.value.length);
-  final studentList = attendanceDB.values.toList();
-  final filteredList =
-      studentList.where((student) => student.batch_name == batch_name).toList();
-  filteredList
-      .sort((a, b) => a.student_name.compareTo(b.student_name)); //sorting
+// Future<void> getallstudents(String batch_name) async {
+//   final attendanceDB = await Hive.openBox<AttendanceModel>('student_db');
+//   //print(attendanceDB.length);
+//   studentListNotifier.value.clear();
+//   //print(studentListNotifier.value.length);
+//   final studentList = attendanceDB.values.toList();
+//   final filteredList =
+//       studentList.where((student) => student.batch_name == batch_name).toList();
+//   filteredList
+//       .sort((a, b) => a.student_name.compareTo(b.student_name)); //sorting
 
-  studentListNotifier.value.addAll(filteredList);
-  studentListNotifier.notifyListeners();
-}
+//   studentListNotifier.value.addAll(filteredList);
+//   studentListNotifier.notifyListeners();
+// }
 
 // Future<void> getallstudents(String batch_name) async {
 //   final attendanceDB = await Hive.openBox<StudentModel>('student_db');
@@ -87,7 +70,7 @@ Future<void> getallstudents(String batch_name) async {
 // }
 
 Future<void> deleteStudent(int id) async {
-  final attendanceDB = await Hive.openBox<StudentModel>('student_db');
+  final attendanceDB = await Hive.openBox<AttendanceModel>('student_db');
 
   await attendanceDB.deleteAt(id);
   // getallstudents(batch_name);

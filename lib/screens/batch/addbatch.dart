@@ -33,67 +33,65 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
           centerTitle: true,
           title: Text("Add Batch Details"),
         ),
-        body: SingleChildScrollView(
-          child: Column(children: [
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextFormField(
-              controller: _nameOfBatch,
-              labelText: 'Batch name',
-              hintText: 'Enter batch name',
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextFormField(
-              controller: _locationOfBatch,
-              labelText: 'Location',
-              hintText: 'Enter location',
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextFormField(
-              controller: _CountOfStudent,
-              labelText: 'Enrollment',
-              hintText: 'Enter number of students',
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            myTextView("Batch Leader\'s Details"),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextFormField(
-              controller: _nameOfLead,
-              labelText: 'Name',
-              hintText: 'Enter Batch Leader\'s name',
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextFormField(
-              controller: _phnOfLead,
-              labelText: 'Phone Number',
-              hintText: 'Enter Batch Leader\'s phone number',
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyElevatedButton(
-              text: 'Save',
-              onPressed: () {
-                onBatchAddButtonClick();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
-              },
-            ),
-          ]),
-        ),
+        body: Column(children: [
+          const SizedBox(
+            height: 20,
+          ),
+          MyTextFormField(
+            controller: _nameOfBatch,
+            labelText: 'Batch name',
+            hintText: 'Enter batch name',
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          MyTextFormField(
+            controller: _locationOfBatch,
+            labelText: 'Location',
+            hintText: 'Enter location',
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          MyTextFormField(
+            controller: _CountOfStudent,
+            labelText: 'Enrollment',
+            hintText: 'Enter number of students',
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          myTextView("Batch Leader\'s Details"),
+          const SizedBox(
+            height: 20,
+          ),
+          MyTextFormField(
+            controller: _nameOfLead,
+            labelText: 'Name',
+            hintText: 'Enter Batch Leader\'s name',
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          MyTextFormField(
+            controller: _phnOfLead,
+            labelText: 'Phone Number',
+            hintText: 'Enter Batch Leader\'s phone number',
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          MyElevatedButton(
+            text: 'Save',
+            onPressed: () {
+              onBatchAddButtonClick();
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            },
+          ),
+        ]),
       ),
     );
   }

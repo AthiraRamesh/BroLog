@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/ImageWidgets/Bubbles_image.dart';
 import '../widgets/ElevatedButton.dart';
 import './login.dart';
-import '../widgets/TextHeading.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});

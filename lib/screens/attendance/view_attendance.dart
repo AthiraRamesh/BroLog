@@ -1,20 +1,19 @@
 import 'package:Brolog/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
 import 'liststudent_attendance.dart';
-import 'view_attendance.dart';
 
-class HomeAttendanceScreen extends StatefulWidget {
+class ViewAttendanceScreen extends StatefulWidget {
   final String batch_name;
-  const HomeAttendanceScreen({
+  const ViewAttendanceScreen({
     super.key,
     required this.batch_name,
   });
 
   @override
-  State<HomeAttendanceScreen> createState() => _HomeAttendanceScreenState();
+  State<ViewAttendanceScreen> createState() => _ViewAttendanceScreenState();
 }
 
-class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
+class _ViewAttendanceScreenState extends State<ViewAttendanceScreen> {
   DateTime date = DateTime(2023, 07, 07);
   @override
   Widget build(BuildContext context) {
@@ -24,10 +23,10 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text("$batch_name : Attendance"),
+        title: Text("$batch_name : View Attendance"),
         actions: [
           IconButton(
-            icon: Icon(Icons.check),
+            icon: Icon(Icons.delete),
             onPressed: () {
               showDialog(
                 context: context,
@@ -79,14 +78,14 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
       body: const ListAttendanceScreen(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return ViewAttendanceScreen(batch_name: batch_name);
-              },
-            ),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) {
+          //       return AddStudentScreen(batch_name: batch_name);
+          //     },
+          //   ),
+          // );
         },
         tooltip: 'View Attendance',
         backgroundColor: Color.fromARGB(255, 213, 71, 71),

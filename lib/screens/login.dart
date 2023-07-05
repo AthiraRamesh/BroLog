@@ -14,7 +14,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController myController = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -38,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 20,
                   ),
                   MyTextFormField(
-                    controller: myController,
+                    controller: email,
                     labelText: 'Email',
                     hintText: 'Enter your email',
                   ),
@@ -46,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 20,
                   ),
                   MyTextFormField(
-                    controller: myController,
+                    controller: password,
                     labelText: 'Password',
                     hintText: 'Confirm Password',
                   ),
