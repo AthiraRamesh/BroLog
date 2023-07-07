@@ -1,52 +1,43 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'StudentModel.dart';
+part of 'attendance_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class StudentModelAdapter extends TypeAdapter<StudentModel> {
+class attendancemodelAdapter extends TypeAdapter<attendance_model> {
   @override
-  final int typeId = 2;
+  final int typeId = 3;
 
   @override
-  StudentModel read(BinaryReader reader) {
+  attendance_model read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return StudentModel(
+    return attendance_model(
       id: fields[0] as String?,
-      student_name: fields[1] as String,
-      domain: fields[2] as String,
-      mobile: fields[3] as String,
-      email_id: fields[4] as String,
-      gender: fields[5] as String,
-      batch_name: fields[6] as String,
-      isSelected: fields[7] as bool,
+      register_number: fields[1] as String,
+      student_name: fields[2] as String,
+      date: fields[3] as DateTime,
+      isSelected: fields[4] as bool,
     );
   }
 
   @override
-  void write(BinaryWriter writer, StudentModel obj) {
+  void write(BinaryWriter writer, attendance_model obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.student_name)
+      ..write(obj.register_number)
       ..writeByte(2)
-      ..write(obj.domain)
+      ..write(obj.student_name)
       ..writeByte(3)
-      ..write(obj.mobile)
+      ..write(obj.date)
       ..writeByte(4)
-      ..write(obj.email_id)
-      ..writeByte(5)
-      ..write(obj.gender)
-      ..writeByte(6)
-      ..write(obj.batch_name)
-      ..writeByte(7)
       ..write(obj.isSelected);
   }
 
@@ -56,7 +47,7 @@ class StudentModelAdapter extends TypeAdapter<StudentModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is StudentModelAdapter &&
+      other is attendancemodelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

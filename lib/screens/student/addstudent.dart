@@ -1,9 +1,9 @@
 import 'package:Brolog/db/student_db/studentdb.dart';
+import 'package:Brolog/models/student_model.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../widgets/TextField.dart';
-import '../../models/StudentModel.dart';
 import './home_student.dart';
 
 class AddStudentScreen extends StatefulWidget {
@@ -18,6 +18,7 @@ class AddStudentScreen extends StatefulWidget {
 }
 
 class _AddBatchScreenState extends State<AddStudentScreen> {
+  final _register = TextEditingController();
   final _nameOfStudent = TextEditingController();
   final _domain = TextEditingController();
   final _mobile = TextEditingController();
@@ -59,6 +60,14 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
             height: 20,
           ),
           myTextView("$batch_name"),
+          const SizedBox(
+            height: 20,
+          ),
+          MyTextFormField(
+            controller: _register,
+            labelText: 'Register Number',
+            hintText: "Enterregister number",
+          ),
           const SizedBox(
             height: 20,
           ),
@@ -105,7 +114,7 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
           MyElevatedButton(
             text: 'Save',
             onPressed: () {
-              onStudenAddButtonClick();
+              onStudentAddButtonClick();
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
@@ -120,7 +129,8 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
     );
   }
 
-  Future<void> onStudenAddButtonClick() async {
+  Future<void> onStudentAddButtonClick() async {
+    final RegisterNumber = _register.text.trim();
     final StudentName = _nameOfStudent.text.trim();
     final Domain = _domain.text.trim();
     final Mobile = _mobile.text.trim();
@@ -128,7 +138,8 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
     final Email = _email.text.trim();
     final batch_name = widget.batch_name;
 
-    if (StudentName.isEmpty ||
+    if (RegisterNumber.isEmpty ||
+        StudentName.isEmpty ||
         Domain.isEmpty ||
         Mobile.isEmpty ||
         Gender.isEmpty ||
@@ -152,7 +163,8 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
       );
     }
 
-    final student = StudentModel(
+    final student = student_model(
+        register_number: RegisterNumber,
         student_name: StudentName,
         domain: Domain,
         mobile: Mobile,

@@ -3,16 +3,19 @@ import './screens/welcome.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import './screens/batch/home.dart';
-import '../../models/StudentModel.dart';
-import '../../models/BatchModel.dart';
+import 'models/attendance_model.dart';
+import 'models/student_model.dart';
+import 'models/batch_model.dart';
+import 'screens/batch/display_batch.dart';
 
 void main() async {
   //hive
   WidgetsFlutterBinding.ensureInitialized();
   final directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
-  Hive.registerAdapter(BatchModelAdapter());
-  Hive.registerAdapter(StudentModelAdapter());
+  Hive.registerAdapter(batchmodelAdapter());
+  Hive.registerAdapter(studentmodelAdapter());
+  Hive.registerAdapter(attendancemodelAdapter());
 
   runApp(const MyApp());
 }
@@ -28,6 +31,7 @@ class MyApp extends StatelessWidget {
       title: 'BroLog',
       routes: {
         '/home': (context) => const HomeScreen(),
+
         //named routing
       },
       initialRoute: '/',

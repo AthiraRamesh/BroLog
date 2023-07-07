@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'BatchModel.dart';
+part of 'batch_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class BatchModelAdapter extends TypeAdapter<BatchModel> {
+class batchmodelAdapter extends TypeAdapter<batch_model> {
   @override
   final int typeId = 1;
 
   @override
-  BatchModel read(BinaryReader reader) {
+  batch_model read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return BatchModel(
+    return batch_model(
       id: fields[0] as int?,
       batch_name: fields[1] as String,
       location: fields[2] as String,
@@ -27,7 +27,7 @@ class BatchModelAdapter extends TypeAdapter<BatchModel> {
   }
 
   @override
-  void write(BinaryWriter writer, BatchModel obj) {
+  void write(BinaryWriter writer, batch_model obj) {
     writer
       ..writeByte(6)
       ..writeByte(0)
@@ -50,7 +50,7 @@ class BatchModelAdapter extends TypeAdapter<BatchModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BatchModelAdapter &&
+      other is batchmodelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

@@ -8,20 +8,20 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hive/hive.dart';
-import '../../models/AttendanceModel.dart';
+import '../../models/attendance_model.dart';
 
 const STUDENT_DB_NAME = 'student_db';
 
 abstract class StudentDbFunctions {
-  Future<List<AttendanceModel>> getallstudents();
-  Future<void> addAttendance(AttendanceModel obj);
+  Future<List<attendance_model>> getallstudents();
+  Future<void> addAttendance(attendance_model obj);
   Future<void> deleteAttendance(int id);
 }
 
 // ignore: duplicate_ignore, duplicate_ignore
-ValueNotifier<List<AttendanceModel>> studentListNotifier = ValueNotifier([]);
-Future<void> addStudent(AttendanceModel value) async {
-  final attendanceDB = await Hive.openBox<AttendanceModel>('student_db');
+ValueNotifier<List<attendance_model>> studentListNotifier = ValueNotifier([]);
+Future<void> addStudent(attendance_model value) async {
+  final attendanceDB = await Hive.openBox<attendance_model>('student_db');
   await attendanceDB.add(value);
   //await attendanceDB.put(value.id, value);
   log(value.toString());
@@ -70,7 +70,7 @@ Future<void> addStudent(AttendanceModel value) async {
 // }
 
 Future<void> deleteStudent(int id) async {
-  final attendanceDB = await Hive.openBox<AttendanceModel>('student_db');
+  final attendanceDB = await Hive.openBox<attendance_model>('student_db');
 
   await attendanceDB.deleteAt(id);
   // getallstudents(batch_name);

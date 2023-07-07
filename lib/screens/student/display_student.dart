@@ -3,6 +3,7 @@ import '../../widgets/Text.dart';
 import 'edit_student.dart';
 
 class DisplayStudent extends StatelessWidget {
+  final String register_number;
   final String student_name;
   final String domain;
   final String mobile;
@@ -12,6 +13,7 @@ class DisplayStudent extends StatelessWidget {
   final String batch_name;
   const DisplayStudent({
     super.key,
+    required this.register_number,
     required this.student_name,
     required this.domain,
     required this.mobile,
@@ -39,6 +41,7 @@ class DisplayStudent extends StatelessWidget {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: ((context) {
                     return EditStudent(
+                      register_number: register_number,
                       student_name: student_name,
                       domain: domain,
                       mobile: mobile,
@@ -117,6 +120,10 @@ class DisplayStudent extends StatelessWidget {
                   children: [
                     const SizedBox(
                       height: 30,
+                    ),
+                    myText("Register Number -  $register_number"),
+                    const SizedBox(
+                      height: 20,
                     ),
                     myText("Name -  $student_name"),
                     const SizedBox(

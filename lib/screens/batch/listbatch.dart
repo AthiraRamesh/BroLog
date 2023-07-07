@@ -1,6 +1,6 @@
 import 'package:Brolog/db/batch_db/batchdb.dart';
 import 'package:flutter/material.dart';
-import '../../models/BatchModel.dart';
+import '../../models/batch_model.dart';
 import 'display_batch.dart';
 
 class ListBatchScreen extends StatelessWidget {
@@ -10,7 +10,7 @@ class ListBatchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: batchListNotifier,
-      builder: (context, List<BatchModel> batchList, Widget? child) {
+      builder: (context, List<batch_model> batchList, Widget? child) {
         return ListView.separated(
           itemBuilder: (context, index) {
             final data = batchList[index];

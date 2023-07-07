@@ -1,3 +1,4 @@
+import 'package:Brolog/screens/attendance/date_attendance.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/Text.dart';
@@ -160,17 +161,17 @@ class _DisplayBatchState extends State<DisplayBatch> {
               ],
             ),
           ),
-          MyElevatedButton(
-            text: 'Take Attendance',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => HomeAttendanceScreen(
-                        batch_name: '${widget.batch_name}')),
-              );
-            },
-          ),
+          // MyElevatedButton(
+          //   text: 'Take Attendance',
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //           builder: (context) => HomeAttendanceScreen(
+          //               batch_name: '${widget.batch_name}')),
+          //     );
+          //   },
+          // ),
           // MyElevatedButton(
           //   text: 'Attendance',
           //   onPressed: () {
@@ -193,6 +194,20 @@ class _DisplayBatchState extends State<DisplayBatch> {
                 MaterialPageRoute(
                     builder: (context) =>
                         HomeStudentScreen(batch_name: '${widget.batch_name}')),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          MyElevatedButton(
+            text: 'Attendance',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DateAttendanceScreen(
+                        batch_name: '${widget.batch_name}')),
               );
             },
           ),

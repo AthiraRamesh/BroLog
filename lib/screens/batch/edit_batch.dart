@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../models/BatchModel.dart';
+import '../../models/batch_model.dart';
 import '../../db/batch_db/batchdb.dart';
 import '../../widgets/TextField.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/ElevatedButton.dart';
 import 'home.dart';
-import '../../widgets/ImageWidgets/Bubbles_image.dart';
-import '../../widgets/ImageWidgets/Attendance_image.dart';
 
 class EditBatch extends StatefulWidget {
   final String batch_name;
@@ -127,7 +125,7 @@ class _EditBatchState extends State<EditBatch> {
   }
 
   Future<void> onEditSaveButton(ctx) async {
-    final batchmodel = BatchModel(
+    final batchmodel = batch_model(
       batch_name: _nameOfBatch.text,
       location: _locationOfBatch.text,
       count: _CountOfStudent.text,

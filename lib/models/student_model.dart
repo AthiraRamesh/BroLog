@@ -1,34 +1,38 @@
 import 'package:hive/hive.dart';
-part 'StudentModel.g.dart';
+part 'student_model.g.dart';
 
 @HiveType(typeId: 2)
-class StudentModel {
+class student_model {
   @HiveField(0)
   String? id;
 
   @HiveField(1)
-  final String student_name;
+  final String register_number;
 
   @HiveField(2)
-  final String domain;
+  final String student_name;
 
   @HiveField(3)
-  final String mobile;
+  final String domain;
 
   @HiveField(4)
-  final String email_id;
+  final String mobile;
 
   @HiveField(5)
-  final String gender;
+  final String email_id;
 
   @HiveField(6)
-  final String batch_name;
+  final String gender;
 
   @HiveField(7)
-  bool isSelected;
+  final String batch_name;
 
-  StudentModel(
+  @HiveField(8)
+  bool isSelected = false;
+
+  student_model(
       {this.id,
+      required this.register_number,
       required this.student_name,
       required this.domain,
       required this.mobile,

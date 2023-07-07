@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/StudentModel.dart';
+import '../../models/student_model.dart';
 import '../../db/student_db/studentdb.dart';
 import 'display_student.dart';
 
@@ -12,7 +12,7 @@ class ListStudentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: studentListNotifier,
-      builder: (context, List<StudentModel> studentList, Widget? _) {
+      builder: (context, List<student_model> studentList, Widget? _) {
         return ListView.separated(
           itemBuilder: (context, index) {
             final data = studentList[index];
@@ -29,6 +29,18 @@ class ListStudentScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 216, 214, 214),
                     ),
                     child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.teal,
+                        child: Text(
+                          data.register_number.toString(),
+                          style: TextStyle(
+                            fontSize: 16, // Set the desired font size
+                            fontWeight:
+                                FontWeight.bold, // Set the desired font weight
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                       title: Center(
                         child: Text(
                           data.student_name,
@@ -45,6 +57,7 @@ class ListStudentScreen extends StatelessWidget {
                           MaterialPageRoute(
                             builder: ((context) {
                               return DisplayStudent(
+                                register_number: data.register_number,
                                 student_name: data.student_name,
                                 domain: data.domain,
                                 mobile: data.mobile,

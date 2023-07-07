@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/TextField.dart';
 
 class EditStudent extends StatefulWidget {
+  final String register_number;
   final String student_name;
   final String domain;
   final String mobile;
@@ -12,6 +13,7 @@ class EditStudent extends StatefulWidget {
 
   const EditStudent({
     super.key,
+    required this.register_number,
     required this.student_name,
     required this.domain,
     required this.mobile,
@@ -26,6 +28,7 @@ class EditStudent extends StatefulWidget {
 }
 
 class _EditStudentState extends State<EditStudent> {
+  TextEditingController _register = TextEditingController();
   TextEditingController _nameOfStudent = TextEditingController();
   TextEditingController _domain = TextEditingController();
   TextEditingController _mobile = TextEditingController();
@@ -35,7 +38,7 @@ class _EditStudentState extends State<EditStudent> {
   @override
   void initState() {
     super.initState();
-
+    //_register = TextEditingController(text: widget.register_number);
     _nameOfStudent = TextEditingController(text: widget.student_name);
     _domain = TextEditingController(text: widget.domain);
     _mobile = TextEditingController(text: widget.mobile);
@@ -55,6 +58,14 @@ class _EditStudentState extends State<EditStudent> {
         child: Column(children: [
           const SizedBox(
             height: 30,
+          ),
+          MyTextFormField(
+            controller: _register,
+            labelText: 'Register Number',
+            hintText: 'Enter register number',
+          ),
+          const SizedBox(
+            height: 20,
           ),
 
           MyTextFormField(

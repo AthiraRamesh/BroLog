@@ -1,8 +1,8 @@
 import 'package:hive/hive.dart';
-part 'BatchModel.g.dart';
+part 'batch_model.g.dart';
 
 @HiveType(typeId: 1)
-class BatchModel {
+class batch_model {
   @HiveField(0)
   int? id;
 
@@ -21,7 +21,7 @@ class BatchModel {
   @HiveField(5)
   final String phnNumber;
 
-  BatchModel({
+  batch_model({
     this.id,
     required this.batch_name,
     required this.location,

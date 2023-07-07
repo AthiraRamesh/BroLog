@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hive/hive.dart';
-import '../../models/BatchModel.dart';
+import '../../models/batch_model.dart';
 
 abstract class BatchDbFunctions {
-  Future<List<BatchModel>> getallbatches();
-  Future<void> addBatch(BatchModel obj);
+  Future<List<batch_model>> getallbatches();
+  Future<void> addBatch(batch_model obj);
   Future<void> deleteBatch(int id);
 }
 
@@ -17,19 +17,19 @@ class BatchDB implements BatchDbFunctions {
   }
 
   @override
-  Future<void> addBatch(BatchModel obj) => throw UnimplementedError();
+  Future<void> addBatch(batch_model obj) => throw UnimplementedError();
 
   @override
   Future<void> deleteBatch(int id) => throw UnimplementedError();
 
   @override
-  Future<List<BatchModel>> getallbatches() => throw UnimplementedError();
+  Future<List<batch_model>> getallbatches() => throw UnimplementedError();
 }
 
-ValueNotifier<List<BatchModel>> batchListNotifier = ValueNotifier([]);
+ValueNotifier<List<batch_model>> batchListNotifier = ValueNotifier([]);
 const BATCH_DB_NAME = 'batch_db';
-Future<void> addBatch(BatchModel value) async {
-  final attendanceDB = await Hive.openBox<BatchModel>('batch_db');
+Future<void> addBatch(batch_model value) async {
+  final attendanceDB = await Hive.openBox<batch_model>('batch_db');
   //final batchList = attendanceDB.values.toList();
 
   await attendanceDB.add(value);
@@ -41,7 +41,7 @@ Future<void> addBatch(BatchModel value) async {
 }
 
 Future<void> getallbatches() async {
-  final attendanceDB = await Hive.openBox<BatchModel>('batch_db');
+  final attendanceDB = await Hive.openBox<batch_model>('batch_db');
   //print(attendanceDB.length);
   batchListNotifier.value.clear();
 
@@ -51,14 +51,14 @@ Future<void> getallbatches() async {
 }
 
 Future<void> deleteBatch(int id) async {
-  final attendanceDB = await Hive.openBox<BatchModel>('batch_db');
+  final attendanceDB = await Hive.openBox<batch_model>('batch_db');
 
   await attendanceDB.deleteAt(id);
   getallbatches();
 }
 
-Future<void> editBatchList(int id, BatchModel value) async {
-  final attendanceDB = await Hive.openBox<BatchModel>('batch_db');
+Future<void> editBatchList(int id, batch_model value) async {
+  final attendanceDB = await Hive.openBox<batch_model>('batch_db');
   attendanceDB.putAt(id, value);
   getallbatches();
 }

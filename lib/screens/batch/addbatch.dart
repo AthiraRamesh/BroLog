@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import './home.dart';
 import '../../widgets/TextHeading.dart';
-import '../../widgets/ImageWidgets/Attendance_image.dart';
-import '../../widgets/ImageWidgets/Bubbles_image.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../widgets/TextField.dart';
 import '../../db/batch_db/batchdb.dart';
-import '../../models/BatchModel.dart';
+import '../../models/batch_model.dart';
 
 class AddBatchScreen extends StatefulWidget {
   const AddBatchScreen({super.key});
@@ -33,65 +31,67 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
           centerTitle: true,
           title: Text("Add Batch Details"),
         ),
-        body: Column(children: [
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _nameOfBatch,
-            labelText: 'Batch name',
-            hintText: 'Enter batch name',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _locationOfBatch,
-            labelText: 'Location',
-            hintText: 'Enter location',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _CountOfStudent,
-            labelText: 'Enrollment',
-            hintText: 'Enter number of students',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          myTextView("Batch Leader\'s Details"),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _nameOfLead,
-            labelText: 'Name',
-            hintText: 'Enter Batch Leader\'s name',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _phnOfLead,
-            labelText: 'Phone Number',
-            hintText: 'Enter Batch Leader\'s phone number',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyElevatedButton(
-            text: 'Save',
-            onPressed: () {
-              onBatchAddButtonClick();
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-              );
-            },
-          ),
-        ]),
+        body: SingleChildScrollView(
+          child: Column(children: [
+            const SizedBox(
+              height: 20,
+            ),
+            MyTextFormField(
+              controller: _nameOfBatch,
+              labelText: 'Batch name',
+              hintText: 'Enter batch name',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            MyTextFormField(
+              controller: _locationOfBatch,
+              labelText: 'Location',
+              hintText: 'Enter location',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            MyTextFormField(
+              controller: _CountOfStudent,
+              labelText: 'Enrollment',
+              hintText: 'Enter number of students',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            myTextView("Batch Leader\'s Details"),
+            const SizedBox(
+              height: 20,
+            ),
+            MyTextFormField(
+              controller: _nameOfLead,
+              labelText: 'Name',
+              hintText: 'Enter Batch Leader\'s name',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            MyTextFormField(
+              controller: _phnOfLead,
+              labelText: 'Phone Number',
+              hintText: 'Enter Batch Leader\'s phone number',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            MyElevatedButton(
+              text: 'Save',
+              onPressed: () {
+                onBatchAddButtonClick();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
+              },
+            ),
+          ]),
+        ),
       ),
     );
   }
@@ -126,7 +126,7 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
         ),
       );
     }
-    final batch = BatchModel(
+    final batch = batch_model(
       batch_name: BatchName,
       location: Location,
       count: Count,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/NavDrawer.dart';
 import './addbatch.dart';
 import './listbatch.dart';
 import '../../db/batch_db/batchdb.dart';
@@ -16,16 +17,17 @@ class _HomeScreenState extends State<HomeScreen> {
     getallbatches();
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: NavDrawer(),
       appBar: AppBar(
         centerTitle: true,
         title: Text("Batches"),
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            // Handle menu icon press
-          },
-        ),
+        //automaticallyImplyLeading: false,
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu),
+        //   onPressed: () {
+        //     // Handle menu icon press
+        //   },
+        // ),
       ),
       body: const ListBatchScreen(),
       floatingActionButton: FloatingActionButton(

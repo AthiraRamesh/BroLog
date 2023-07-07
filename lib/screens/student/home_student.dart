@@ -1,11 +1,6 @@
 import 'package:Brolog/db/student_db/studentdb.dart';
-import 'package:Brolog/models/StudentModel.dart';
-import 'package:Brolog/screens/student/display_student.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/ImageWidgets/Attendance_image.dart';
-import '../../widgets/ImageWidgets/Bubbles_image.dart';
-import '../../widgets/ElevatedButton.dart';
-import '../../widgets/TextHeading.dart';
+import '../batch/home.dart';
 import './liststudent.dart';
 import './addstudent.dart';
 
@@ -29,8 +24,19 @@ class _HomeStudentScreenState extends State<HomeStudentScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text("$batch_name : Student Details"),
+        title: GestureDetector(
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeScreen(),
+              ),
+            );
+          },
+          child: Text("$batch_name : Student Details"),
+        ),
       ),
+
       body: const ListStudentScreen(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
