@@ -5,7 +5,6 @@ import '../../widgets/Text.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../db/batch_db/batchdb.dart';
 import '../../screens/student/home_student.dart';
-import '../attendance/home_attendance.dart';
 import 'edit_batch.dart';
 
 class DisplayBatch extends StatefulWidget {

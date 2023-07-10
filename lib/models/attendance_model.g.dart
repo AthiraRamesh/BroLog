@@ -17,28 +17,16 @@ class attendancemodelAdapter extends TypeAdapter<attendance_model> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return attendance_model(
-      id: fields[0] as String?,
-      register_number: fields[1] as String,
-      student_name: fields[2] as String,
-      date: fields[3] as DateTime,
-      isSelected: fields[4] as bool,
+      absent: (fields[0] as List).cast<dynamic>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, attendance_model obj) {
     writer
-      ..writeByte(5)
-      ..writeByte(0)
-      ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.register_number)
-      ..writeByte(2)
-      ..write(obj.student_name)
-      ..writeByte(3)
-      ..write(obj.date)
-      ..writeByte(4)
-      ..write(obj.isSelected);
+      ..writeByte(0)
+      ..write(obj.absent);
   }
 
   @override

@@ -6,7 +6,6 @@ import './screens/batch/home.dart';
 import 'models/attendance_model.dart';
 import 'models/student_model.dart';
 import 'models/batch_model.dart';
-import 'screens/batch/display_batch.dart';
 
 void main() async {
   //hive

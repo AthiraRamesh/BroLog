@@ -1,4 +1,3 @@
-import 'package:Brolog/models/attendance_model.dart';
 import 'package:flutter/material.dart';
 import '../../db/student_db/studentdb.dart';
 import '../../models/student_model.dart';

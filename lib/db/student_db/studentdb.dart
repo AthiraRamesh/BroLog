@@ -1,7 +1,7 @@
 // ignore: duplicate_ignore
 // ignore: duplicate_ignore
 // ignore: duplicate_ignore
-// ignore_for_file: invalid_use_of_visible_for_testing_member, duplicate_ignore
+// ignore_for_file: invalid_use_of_visible_for_testing_member, duplicate_ignore, invalid_use_of_protected_member
 
 import 'dart:developer';
 

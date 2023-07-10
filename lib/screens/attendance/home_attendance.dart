@@ -1,5 +1,6 @@
 import 'package:Brolog/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
+import '../../db/attendance_db/attendancedb.dart';
 import '../../models/student_model.dart';
 import 'date_attendance.dart';
 
@@ -161,5 +162,7 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
     return Navigator.pop(context);
   }
 
-  Future<void> onAttendanceAddButtonClick() async {}
+  Future<void> onAttendanceAddButtonClick() async {
+    addAttendance(absent);
+  }
 }
