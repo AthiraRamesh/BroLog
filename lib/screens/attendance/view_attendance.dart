@@ -1,5 +1,6 @@
 import 'package:Brolog/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
+import '../../db/attendance_db/attendancedb.dart';
 import 'liststudent_attendance.dart';
 
 class ViewAttendanceScreen extends StatefulWidget {
@@ -18,62 +19,65 @@ class _ViewAttendanceScreenState extends State<ViewAttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     String batch_name = widget.batch_name;
-    getallstudents(batch_name);
+    getallattendance(batch_name);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text("$batch_name : View Attendance"),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.delete),
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: ((context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: AlertDialog(
-                      title: const Text(
-                        'Save!',
-                        style: TextStyle(
-                          color: Colors.red,
-                        ),
-                      ),
-                      content: const Text(
-                        "Do you want to save this attendance",
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: (() {
-                            popoutfuction(context);
-                            //deleteBatch(widget.index);
+        //title: Text("$batch_name : View Attendance"),
+        title: Text(
+          "View Attendance",
+        ),
+        // actions: [
+        //   IconButton(
+        //     icon: Icon(Icons.delete),
+        //     onPressed: () {
+        //       showDialog(
+        //         context: context,
+        //         builder: ((context) {
+        //           return Padding(
+        //             padding: const EdgeInsets.all(20.0),
+        //             child: AlertDialog(
+        //               title: const Text(
+        //                 'Delete!',
+        //                 style: TextStyle(
+        //                   color: Colors.red,
+        //                 ),
+        //               ),
+        //               content: const Text(
+        //                 "Do you want to delete this attendance",
+        //               ),
+        //               actions: [
+        //                 TextButton(
+        //                   onPressed: (() {
+        //                     popoutfuction(context);
+        //                     //deleteBatch(widget.index);
 
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                behavior: SnackBarBehavior.floating,
-                                margin: EdgeInsets.all(20),
-                                content:
-                                    Text("Attendance saved successfully !!"),
-                              ),
-                            );
-                          }),
-                          child: const Text('Save'),
-                        ),
-                        TextButton(
-                            onPressed: (() {
-                              popoutfuction(context);
-                            }),
-                            child: const Text('Cancel'))
-                      ],
-                    ),
-                  );
-                }),
-              );
-              // Handle search icon press
-            },
-          ),
-        ],
+        //                     ScaffoldMessenger.of(context).showSnackBar(
+        //                       const SnackBar(
+        //                         behavior: SnackBarBehavior.floating,
+        //                         margin: EdgeInsets.all(20),
+        //                         content:
+        //                             Text("Attendance delete successfully !!"),
+        //                       ),
+        //                     );
+        //                   }),
+        //                   child: const Text('Delete'),
+        //                 ),
+        //                 TextButton(
+        //                     onPressed: (() {
+        //                       popoutfuction(context);
+        //                     }),
+        //                     child: const Text('Cancel'))
+        //               ],
+        //             ),
+        //           );
+        //         }),
+        //       );
+        //       // Handle search icon press
+        //     },
+        //   ),
+        // ],
       ),
       body: const ListAttendanceScreen(),
       floatingActionButton: FloatingActionButton(
@@ -87,11 +91,11 @@ class _ViewAttendanceScreenState extends State<ViewAttendanceScreen> {
           //   ),
           // );
         },
-        tooltip: 'View Attendance',
+        tooltip: 'Edit Attendance',
         backgroundColor: Color.fromARGB(255, 213, 71, 71),
         child: const Icon(
           //Icons.article_outlined,
-          Icons.assignment,
+          Icons.edit_note_rounded,
           size: 40,
           color: Colors.white,
         ),

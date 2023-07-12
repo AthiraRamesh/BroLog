@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/ElevatedButton.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'home_attendance.dart';
+import 'view_attendance.dart';
 
 class DateAttendanceScreen extends StatefulWidget {
   final String batch_name;
@@ -81,12 +82,12 @@ class _DateAttendanceScreenState extends State<DateAttendanceScreen> {
             MyElevatedButton(
               text: 'View Attendance',
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) => DateAttendanceScreen(
-                //           batch_name: '${widget.batch_name}')),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ViewAttendanceScreen(
+                          batch_name: '${widget.batch_name}')),
+                );
               },
             ),
           ],

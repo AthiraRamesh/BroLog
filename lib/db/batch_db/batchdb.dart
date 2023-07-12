@@ -33,7 +33,7 @@ Future<void> addBatch(batch_model value) async {
   //final batchList = attendanceDB.values.toList();
 
   await attendanceDB.add(value);
-  //print(value.toString());
+  print(value);
 
   //batchListNotifier.value.add(value);
   // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member

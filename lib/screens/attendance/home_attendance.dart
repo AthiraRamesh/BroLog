@@ -1,4 +1,5 @@
 import 'package:Brolog/db/student_db/studentdb.dart';
+import 'package:Brolog/models/attendance_model.dart';
 import 'package:flutter/material.dart';
 import '../../db/attendance_db/attendancedb.dart';
 import '../../models/student_model.dart';
@@ -22,6 +23,7 @@ final _dateController = TextEditingController();
 class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
   //DateTime date = DateTime(2023, 07, 06);
   List<dynamic> absent = [];
+  late Map<String, dynamic> attendance_map;
   @override
   Widget build(BuildContext context) {
     //DateTime selected_date = widget.selected_date;
@@ -31,7 +33,8 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
-          title: Text("$batch_name : Attendance"),
+          //title: Text("$batch_name : Attendance"),
+          title: Text("Attendance"),
           actions: [
             IconButton(
               icon: Icon(Icons.check),
@@ -53,6 +56,7 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
                         TextButton(
                           onPressed: (() {
                             onAttendanceAddButtonClick();
+
                             //popoutfuction(context);
                             //deleteBatch(widget.index);
                             Navigator.push(
@@ -95,6 +99,8 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
             return ListView.builder(
               itemBuilder: (context, index) {
                 final data = studentList[index];
+                //data.isSelected = false;
+                //bool data.isSelected = false;
                 return Padding(
                   padding: const EdgeInsets.only(left: 50.0, right: 50.0),
                   child: Column(
@@ -127,7 +133,8 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
                               data.isSelected = !data.isSelected;
                               print(data.isSelected);
                               if (data.isSelected == true) {
-                                absent.add(data.student_name);
+                                //attendance_map.add(data.student_name);
+                                //absent.add(data.student_name);
                               } else if (data.isSelected == false) {
                                 absent.remove(data.student_name);
                               }
@@ -163,6 +170,10 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
   }
 
   Future<void> onAttendanceAddButtonClick() async {
-    addAttendance(absent);
+    DateTime selected_date = widget.selected_date;
+    final attendance = attendance_model(
+      date: selected_date,
+    );
+    addAttendance(attendance);
   }
 }

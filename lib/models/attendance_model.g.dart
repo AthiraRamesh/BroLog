@@ -17,7 +17,7 @@ class attendancemodelAdapter extends TypeAdapter<attendance_model> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return attendance_model(
-      absent: (fields[0] as List).cast<dynamic>(),
+      date: fields[0] as DateTime,
     );
   }
 
@@ -26,7 +26,7 @@ class attendancemodelAdapter extends TypeAdapter<attendance_model> {
     writer
       ..writeByte(1)
       ..writeByte(0)
-      ..write(obj.absent);
+      ..write(obj.date);
   }
 
   @override
