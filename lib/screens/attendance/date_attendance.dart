@@ -7,9 +7,11 @@ import 'view_attendance.dart';
 
 class DateAttendanceScreen extends StatefulWidget {
   final String batch_name;
+  final String count;
   DateAttendanceScreen({
     super.key,
     required this.batch_name,
+    required this.count,
   });
 
   @override
@@ -64,7 +66,8 @@ class _DateAttendanceScreenState extends State<DateAttendanceScreen> {
                   MaterialPageRoute(
                       builder: (context) => HomeAttendanceScreen(
                           selected_date: today,
-                          batch_name: '${widget.batch_name}')),
+                          batch_name: '${widget.batch_name}',
+                          count: '${widget.count}')),
                 );
               },
             ),

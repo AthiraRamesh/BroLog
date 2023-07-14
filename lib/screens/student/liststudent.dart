@@ -15,6 +15,12 @@ class ListStudentScreen extends StatelessWidget {
       builder: (context, List<student_model> studentList, Widget? _) {
         return ListView.separated(
           itemBuilder: (context, index) {
+            List<String> names = [];
+
+            for (var student in studentList) {
+              names.add(student.student_name);
+            }
+            print(names);
             final data = studentList[index];
             return Padding(
               padding: const EdgeInsets.only(left: 80.0, right: 80.0),

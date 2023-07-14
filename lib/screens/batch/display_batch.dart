@@ -206,7 +206,8 @@ class _DisplayBatchState extends State<DisplayBatch> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => DateAttendanceScreen(
-                        batch_name: '${widget.batch_name}')),
+                        batch_name: '${widget.batch_name}',
+                        count: '${widget.count}')),
               );
             },
           ),

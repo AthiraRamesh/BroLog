@@ -19,14 +19,14 @@ ValueNotifier<List<attendance_model>> attendanceListNotifier =
 Future<void> addAttendance(attendance_model value) async {
   final attendanceDB = await Hive.openBox<attendance_model>('attendance_db');
   //final attendance = attendance_model(absent: absent);
-  print("inside attendance_db");
+  // //print("inside attendance_db");
   //print(absent);
   await attendanceDB.add(value);
   // print(attendance.toString());
   // print(attendanceDB.toString());
   // await attendanceDB.add(value);
   //log(attendance.toString());
-  print(value);
+  // //print(value);
   attendanceListNotifier.notifyListeners();
 }
 
